@@ -5,7 +5,7 @@
 namespace VideoGame.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class ThirdCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,9 +16,9 @@ namespace VideoGame.Migrations
                 {
                     GameId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<int>(type: "INTEGER", nullable: false),
-                    Genre = table.Column<int>(type: "INTEGER", nullable: false),
-                    Platform = table.Column<int>(type: "INTEGER", nullable: false)
+                    Title = table.Column<string>(type: "TEXT", nullable: true),
+                    Genre = table.Column<string>(type: "TEXT", nullable: true),
+                    Platform = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

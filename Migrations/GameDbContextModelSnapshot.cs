@@ -22,14 +22,14 @@ namespace VideoGame.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Genre")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Genre")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("Platform")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Platform")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("Title")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("GameId");
 

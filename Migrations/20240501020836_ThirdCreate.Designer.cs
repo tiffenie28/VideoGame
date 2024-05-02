@@ -10,8 +10,8 @@ using VideoGame.Models;
 namespace VideoGame.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    [Migration("20240430204021_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240501020836_ThirdCreate")]
+    partial class ThirdCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,14 +25,14 @@ namespace VideoGame.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Genre")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Genre")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("Platform")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Platform")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("Title")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("GameId");
 

@@ -20,23 +20,26 @@ namespace VideoGame.Models;
                 
                 
                 context.Games.AddRange(
+                    
                     new Game
                     {
                         Title = "World of Warcraft",
-                        Genre = "The Grey",
+                        Genre = "MMO",
                         Platform = "PC"
                     },
+
                     new Game
                     {
                        Title = "Fortnight",
-                        Genre = "The Grey",
+                        Genre = "Battle Royale",
                         Platform = "Playstation"
                         
                     },
+
                     new Game
                     {
                         Title = "Bendy & The Dark Rival",
-                        Genre = "The Grey",
+                        Genre = "Adventure",
                         Platform = "Playstation"
                         
                     },
@@ -44,7 +47,14 @@ namespace VideoGame.Models;
                      new Game
                     {
                         Title = "Roblox",
-                        Genre = "The Grey",
+                        Genre = "Adventure",
+                        Platform = "Playstation"
+                        
+                    },
+                     new Game
+                    {
+                        Title = "Fallout",
+                        Genre = "RPG",
                         Platform = "Playstation"
                         
                     },
@@ -52,7 +62,7 @@ namespace VideoGame.Models;
                       new Game
                     {
                         Title = "Minecraft",
-                        Genre = "The Grey",
+                        Genre = "Adventure",
                         Platform = "Playstation"
                         
                     },
@@ -60,7 +70,14 @@ namespace VideoGame.Models;
                        new Game
                     {
                         Title = "StarDew Valley",
-                        Genre = "The Grey",
+                        Genre = "RPG",
+                        Platform = "PC"
+                        
+                    },
+                      new Game
+                    {
+                       Title = "Among Us",
+                        Genre = "Adventure",
                         Platform = "PC"
                         
                     }
