@@ -14,3 +14,6 @@
 {
     <p>@Html.DisplayFor(modelItem => g.GameId) @Html.DisplayFor(modelItem => g.Title) @Html.DisplayFor(modelItem => g.Genre) @Html.DisplayFor(modelItem => g.Platform)</p>
 }
+<select asp-items="Model.GamesDropDown" class="form-control">
+	<option value="">-- Select Game--</option>
+</select>
