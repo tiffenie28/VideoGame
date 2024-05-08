@@ -12,7 +12,7 @@ public class CreateModel : PageModel
     private readonly ILogger<CreateModel> _logger;
 
     [BindProperty]
-    public Game Game { get; set; } 
+    public Game Game { get; set; } = default!;
    
 
     public CreateModel(GameDbContext context, ILogger<CreateModel> logger)
