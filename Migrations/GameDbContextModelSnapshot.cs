@@ -17,6 +17,31 @@ namespace VideoGame.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
 
+            modelBuilder.Entity("VideoGame.Models.Character", b =>
+                {
+                    b.Property<int?>("CharacterId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("GameId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Level")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("User")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CharacterId");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("Characters");
+                });
+
             modelBuilder.Entity("VideoGame.Models.Game", b =>
                 {
                     b.Property<int?>("GameId")
@@ -37,6 +62,20 @@ namespace VideoGame.Migrations
                     b.HasKey("GameId");
 
                     b.ToTable("Games");
+                });
+
+            modelBuilder.Entity("VideoGame.Models.Character", b =>
+                {
+                    b.HasOne("VideoGame.Models.Game", "Game")
+                        .WithMany("Characters")
+                        .HasForeignKey("GameId");
+
+                    b.Navigation("Game");
+                });
+
+            modelBuilder.Entity("VideoGame.Models.Game", b =>
+                {
+                    b.Navigation("Characters");
                 });
 #pragma warning restore 612, 618
         }

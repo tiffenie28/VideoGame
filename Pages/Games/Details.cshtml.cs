@@ -27,7 +27,7 @@ namespace VideoGame.Pages.Games
                 return NotFound();
             }
 
-            var game = await _context.Games.FirstOrDefaultAsync(m => m.GameId == id);
+            var game = await _context.Games.Include(m => m.Characters).FirstOrDefaultAsync(m => m.GameId == id);
             if (game == null)
             {
                 return NotFound();

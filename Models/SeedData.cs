@@ -19,63 +19,15 @@ namespace VideoGame.Models;
                 }
                 
                 
-                context.Games.AddRange(
+                var games = new List<Game>
+                {
                     
                     new Game
                     {
                         Title = "World of Warcraft",
                         Genre = "MMO",
                         Platform = "PC",
-                        Characters = new List<Character> {
-                            new Character 
-                            {Name = "Keltee",
-                            Level = 70, 
-                            User = "Tiffenie"},
-                            new Character 
-                            {Name = "Insox",
-                            Level = 70, 
-                            User = "Tiffenie"},
-                             new Character 
-                            {Name = "Kelwinn",
-                            Level = 70, 
-                            User = "Tiffenie"},
-                             new Character 
-                            {Name = "Aukya",
-                            Level = 56, 
-                            User = "Tiffenie"},
-                             new Character 
-                            {Name = "Faytell",
-                            Level = 2, 
-                            User = "Tiffenie"},
-                             new Character 
-                            {Name = "Kelps",
-                            Level = 1, 
-                            User = "Tiffenie"},
-                             new Character 
-                            {Name = "Oathbringer",
-                            Level = 70, 
-                            User = "Brett"},
-                             new Character 
-                            {Name = "Oathwarden",
-                            Level = 66, 
-                            User = "Brett"},
-                            new Character 
-                            {Name = "Oathstalker",
-                            Level = 70, 
-                            User = "Brett"},
-                             new Character 
-                            {Name = "Oathwarder",
-                            Level = 53, 
-                            User = "Brett"},
-                             new Character 
-                            {Name = "Oathtaker",
-                            Level = 70, 
-                            User = "Brett"},
-                             new Character 
-                            {Name = "Oathbound",
-                            Level = 60, 
-                            User = "Brett"},
-        }           
+                                  
                     },
 
                     new Game
@@ -83,21 +35,7 @@ namespace VideoGame.Models;
                        Title = "Fortnight",
                         Genre = "Battle Royale",
                         Platform = "Playstation",
-                         Characters = new List<Character> {
-                            new Character 
-                            {Name = "Fishstick",
-                            Level = 42, 
-                            User = "Axel"},
-                              new Character 
-                            {Name = "Peely",
-                            Level = 40, 
-                            User = "Axel"},
-                              new Character 
-                            {Name = "kids53",
-                            Level = 40, 
-                            User = "Aymes"}
-                         }
-                         
+                           
                     },
 
                     new Game
@@ -105,12 +43,7 @@ namespace VideoGame.Models;
                         Title = "Bendy & The Dark Rival",
                         Genre = "Adventure",
                         Platform = "Playstation",
-                        Characters = new List<Character> {
-                          new Character 
-                            {Name = "Bendy",
-                            Level = 21, 
-                            User = "Axel"}
-                        }
+                       
                     },
 
                      new Game
@@ -200,9 +133,33 @@ namespace VideoGame.Models;
                         
                     }
                     }
+                }
+        }
                 );
 
+                context.Games.AddRange(games);
                 context.SaveChanges();
+
+                var characters = new List<Character>
+                {
+                    new Character {Name = "Keltee", Level = 70,User = "Tiffenie", GameId = 1},
+                    new Character {Name = "Insox", Level = 70, User = "Tiffenie", GameId = 1},
+                    new Character {Name = "Kelwinn", Level = 70, User = "Tiffenie", GameId = 1},
+                    new Character {Name = "Aukya", Level = 56, User = "Tiffenie", GameId = 1},
+                    new Character {Name = "Faytell", Level = 2, User = "Tiffenie", GameId = 1},
+                    new Character {Name = "Kelps", Level = 1, User = "Tiffenie", GameId = 1},
+                    new Character {Name = "Oathbringer", Level = 70, User = "Brett", GameId = 1},
+                    new Character {Name = "Oathwarden", Level = 66, User = "Brett", GameId = 1},
+                    new Character {Name = "Oathstalker", Level = 70, User = "Brett", GameId = 1},
+                    new Character {Name = "Oathwarder", Level = 53, User = "Brett", GameId = 1},
+                    new Character {Name = "Oathtaker", Level = 70, User = "Brett", GameId = 1},
+                    new Character {Name = "Oathbound", Level = 60, User = "Brett", GameId = 1},
+                    new Character {Name = "Fishstick", Level = 42, User = "Axel", GameId = 2},
+                    new Character {Name = "Peely", Level = 40, User = "Axel", GameId = 2},
+                    new Character {Name = "kids53", Level = 40, User = "Aymes", GameId = 2},
+                    new Character {Name = "Bendy", Level = 21, User = "Axel", GameId = 3},
+                        }
+                }
             }
         
         }
