@@ -51,33 +51,13 @@ namespace VideoGame.Models;
                         Title = "Roblox",
                         Genre = "Adventure",
                         Platform = "Playstation",
-                        Characters = new List<Character> {
-                          new Character 
-                            {Name = "Bro",
-                            Level = 1, 
-                            User = "Axel"},
-                             new Character 
-                            {Name = "Aymesy",
-                            Level = 1, 
-                            User = "Aymes"}
-                        }
                         
                     },
                      new Game
                     {
                         Title = "Fallout",
                         Genre = "RPG",
-                        Platform = "Playstation",
-                        Characters = new List<Character> {
-                          new Character 
-                            {Name = "Gator",
-                            Level = 219, 
-                            User = "Brett"},
-                            new Character 
-                            {Name = "Strife",
-                            Level = 20, 
-                            User = "Brett"},
-                        }
+                        Platform = "Playstation",  
                         
                     },
 
@@ -86,17 +66,7 @@ namespace VideoGame.Models;
                         Title = "Minecraft",
                         Genre = "Adventure",
                         Platform = "Playstation",
-                        Characters = new List<Character> {
-                        new Character 
-                            {Name = "Kids53",
-                            Level = 1, 
-                            User = "Axel"},
-                            new Character 
-                            {Name = "Anyone",
-                            Level = 1, 
-                            User = "Axel"},
-                    }
-                        
+                      
                     },
 
                        new Game
@@ -104,16 +74,7 @@ namespace VideoGame.Models;
                         Title = "StarDew Valley",
                         Genre = "RPG",
                         Platform = "PC",
-                         Characters = new List<Character> {
-                        new Character 
-                            {Name = "Kelty",
-                            Level = 1, 
-                            User = "Tiffenie"},
-                            new Character 
-                            {Name = "Oath",
-                            Level = 1, 
-                            User = "Brett"}
-                         }
+                        
                         
                     },
                       new Game
@@ -121,21 +82,11 @@ namespace VideoGame.Models;
                        Title = "Among Us",
                         Genre = "Adventure",
                         Platform = "PC",
-                        Characters = new List<Character> {
-                        new Character 
-                            {Name = "Rose",
-                            Level = 1, 
-                            User = "Aymes"},
-                            new Character 
-                            {Name = "Lime",
-                            Level = 1, 
-                            User = "Axel"}
-                        
+                    
                     }
-                    }
-                }
-        }
-                );
+                
+             
+        };
 
                 context.Games.AddRange(games);
                 context.SaveChanges();
@@ -158,9 +109,21 @@ namespace VideoGame.Models;
                     new Character {Name = "Peely", Level = 40, User = "Axel", GameId = 2},
                     new Character {Name = "kids53", Level = 40, User = "Aymes", GameId = 2},
                     new Character {Name = "Bendy", Level = 21, User = "Axel", GameId = 3},
-                        }
-                }
-            }
-        
-        }
+                    new Character {Name = "Bro", Level = 1, User = "Axel", GameId = 4},
+                    new Character {Name = "Aymesy", Level = 1, User = "Aymes", GameId = 4},
+                    new Character {Name = "Gator", Level = 219, User = "Brett", GameId = 5},
+                    new Character {Name = "Strife", Level = 20, User = "Brett", GameId = 5},
+                    new Character {Name = "Kids53", Level = 1, User = "Axel", GameId = 6},
+                    new Character {Name = "Anyone", Level = 1, User = "Axel", GameId = 6},
+                    new Character {Name = "Kelty", Level = 1, User = "Tiffenie", GameId = 7},
+                    new Character {Name = "Oath", Level = 1, User = "Brett", GameId = 7},
+                    new Character {Name = "Rose", Level = 1, User = "Aymes", GameId = 8},
+                    new Character {Name = "Lime", Level = 1, User = "Axel", GameId = 8}
+                        
+           };
+
+        context.Characters.AddRange(characters);
+        context.SaveChanges();
     }
+    }
+        }

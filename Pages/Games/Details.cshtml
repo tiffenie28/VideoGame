@@ -29,23 +29,24 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Game.Platform)
         </dd>
-       @foreach (var character in Model.Game.Characters)
-    {
-        <div class="col-sm-6">
-            <dt>
-                @Html.DisplayNameFor(model => character.Name)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => character.Name)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => character.Level)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => character.Level)
-            </dd> 
-        </div>
-    }
+    @foreach (var character in Model.Game.Characters)
+{
+    <div class="col-sm-6">
+        <dt>
+            @Html.DisplayNameFor(model => character.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => character.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => character.Level)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => character.Level)
+        </dd> 
+    </div>
+}
+
     </dl>
 </div>
 <div>
