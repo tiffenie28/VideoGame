@@ -12,33 +12,34 @@
     </div>
 </form>
 
-@if (Model.Games != null && Model.Games.Any())
+@if (Model.GamesWithCharacters.Any())
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Genre</th>
-                <th>Platform</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Games)
-            {
+    @foreach (var gameWithCharacters in Model.GamesWithCharacters)
+    {
+        <h2>@gameWithCharacters.Game.Title</h2>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@item.Title</td>
-                    <td>@item.Genre</td>
-                    <td>@item.Platform</td>
-                    <td>
-                        <a asp-page="./Details" asp-route-id="@item.GameId">Details</a>
-                    </td>
+                    <th>Name</th>
+                    <th>Level</th>
+                    <th>User</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var character in gameWithCharacters.Characters)
+                {
+                    <tr>
+                        <td>@character.Name</td>
+                        <td>@character.Level</td>
+                        <td>@character.User</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 }
 else
 {
     <p>No results found.</p>
 }
+

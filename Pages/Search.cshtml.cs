@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using VideoGame.Models;
@@ -18,25 +16,41 @@ namespace VideoGame.Pages.Games
             _context = context;
         }
 
-        public IList<Game> Games { get;set; }
+        public List<GameWithCharactersViewModel> GamesWithCharacters { get; set; } = new List<GameWithCharactersViewModel>();
 
         public async Task OnGetAsync(string? searchQuery)
         {
             if (!string.IsNullOrEmpty(searchQuery))
             {
-                // Perform search for games or users based on the search query
-                Games = await _context.Games
-                    .Include(g => g.Characters)
-                    .Where(g => g.Title.Contains(searchQuery) || g.Characters.Any(c => c.User.Contains(searchQuery)))
-                    .ToListAsync();
-            }
-            else
-            {
-                // If no search query provided, retrieve all games
-                Games = await _context.Games
-                    .Include(g => g.Characters)
-                    .ToListAsync();
+                var gamesWithCharactersQuery =
+                    from game in _context.Games
+                    join character in _context.Characters on game.GameId equals character.GameId
+                    where game.Title.Contains(searchQuery) || character.Name.Contains(searchQuery) || character.User.Contains(searchQuery)
+                    select new { Game = game, Character = character };
+
+                var gamesWithCharacters = await gamesWithCharactersQuery.ToListAsync();
+
+                // Group characters by game
+                var groupedGamesWithCharacters = gamesWithCharacters.GroupBy(gc => gc.Game);
+
+                foreach (var groupedGameWithCharacters in groupedGamesWithCharacters)
+                {
+                    var gameViewModel = new GameWithCharactersViewModel
+                    {
+                        Game = groupedGameWithCharacters.Key,
+                        Characters = groupedGameWithCharacters.Select(gc => gc.Character).ToList()
+                    };
+                    GamesWithCharacters.Add(gameViewModel);
+                }
             }
         }
     }
+
+    public class GameWithCharactersViewModel
+    {
+        public Game Game { get; set; }
+        public List<Character> Characters { get; set; }
+    }
 }
+
+
