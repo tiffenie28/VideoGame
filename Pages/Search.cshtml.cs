@@ -30,7 +30,7 @@ namespace VideoGame.Pages.Games
 
                 var gamesWithCharacters = await gamesWithCharactersQuery.ToListAsync();
 
-                // Group characters by game
+                
                 var groupedGamesWithCharacters = gamesWithCharacters.GroupBy(gc => gc.Game);
 
                 foreach (var groupedGameWithCharacters in groupedGamesWithCharacters)
