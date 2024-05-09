@@ -1,0 +1,44 @@
+@page
+@model VideoGame.Pages.Games.SearchModel
+
+<h1>Search</h1>
+
+<form method="get" action="">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search for games or users..." name="searchQuery">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+
+@if (Model.Games != null && Model.Games.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Platform</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Games)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Genre</td>
+                    <td>@item.Platform</td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@item.GameId">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No results found.</p>
+}
