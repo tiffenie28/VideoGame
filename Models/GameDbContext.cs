@@ -10,7 +10,7 @@ namespace VideoGame.Models
 		{
 		}
 		public DbSet<Game> Games {get; set;} = default!;
-		
+		public DbSet<Character> Characters {get; set;} = default!;
 
 	}
 }

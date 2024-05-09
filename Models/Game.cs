@@ -13,6 +13,7 @@ namespace VideoGame.Models
         public string? Genre { get; set; }
        
         public string? Platform { get; set; }
+        public List<Character> Characters { get; set; } = new List<Character>();
         
     }
 }
