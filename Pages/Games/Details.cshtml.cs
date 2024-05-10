@@ -62,7 +62,7 @@ namespace VideoGame.Pages.Games
             // Associate character with the game
             Character.GameId = game.GameId;
 
-            // Save character to database
+            // Save char
             _context.Characters.Add(Character);
             await _context.SaveChangesAsync();
 
